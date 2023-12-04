@@ -12,8 +12,6 @@ def zmedian(zlist: list) -> float:
 
     # Sort so we can find the middle value number of the list of numbers
     sort_list = sorted(zlist, reverse=False)
-    print(list_len)
-    print(sort_list)
 
     # If the list is an odd number of elements long, get the middle of it
     # / division as int will give index to middle of list

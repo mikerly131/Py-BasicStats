@@ -28,14 +28,11 @@ def zmode(zlist: list):
         z_mode = num_keys[0]
         return z_mode / 1.0
     elif sum(num_values) / (num_values[0] * num_count) == 1:
-        print("There is no mode.")
-    # Elif the count of value 0 is not equal to count of value 1, value 0 is the mode
+        return "There is no mode."
     elif num_values[0] != num_values[1]:
         z_mode = num_keys[0]
         return z_mode / 1.0
-    # Else all values with equal count are the mode
     else:
-        # Turn this into an lcs at some point
         mode_list = []
         z_mode = num_values[0]
         for key in num_keys:

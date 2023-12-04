@@ -3,7 +3,7 @@ from statzcw import zcount, zmean, zcorr, zmode, zstdev, zmedian, zstderr, zvari
 import csv
 import glob
 import math
-from statistics import mean, median, multimode, stdev, variance, correlation
+from statistics import mean, median, mode, stdev, variance, correlation
 
 
 # Function to get the list of csv_files to calculate stats for
@@ -44,6 +44,7 @@ def read_data_sets(files: list):
 # Helper function to print statistics on each list from the files
 def run_my_stats(listx: list, listy: list):
 
+    print("Calculating my statistics...")
     xcount = statzcw.zcount.zcount(listx)
     xmean = statzcw.zmean.zmean(listx)
     xmedian = statzcw.zmedian.zmedian(listx)
@@ -68,36 +69,37 @@ def run_my_stats(listx: list, listy: list):
     print(f'X, Y Correlation: {xycorr}')
 
 
+# Helper functions to print the stats package method results
 def run_py_stats(listx: list, listy: list):
 
-    print('Calculating metrics using statistics packages...')
-    xcount = len(listx)
-    xmean = mean(listx)
-    xmedian = median(listx)
-    xmode = mode(listx)
-    xstdev = stdev(listx)
-    xstderr = stdev(listx) / math.sqrt(len(listx))
-    xvar = variance(listx)
-    print(f'X: Count = {xcount}, Mean = {xmean}, Median = {xmedian}, Mode = {xmode},'
-          f'Std Dev = {xstdev}, Std Err = {xstderr}, Var = {xvar}')
+    print("\n Calculating python statistics...")
+    x_count = len(listx)
+    x_mean = mean(listx)
+    x_median = median(listx)
+    x_mode = mode(listx)
+    x_stdev = stdev(listx)
+    x_stderr = stdev(listx) / math.sqrt(len(listx))
+    x_var = variance(listx)
+    print(f'X: Count = {x_count}, Mean = {x_mean}, Median = {x_median}, Mode = {x_mode},'
+          f'Std Dev = {x_stdev}, Std Err = {x_stderr}, Var = {x_var}')
 
-    ycount = len(listy)
-    ymean = mean(listy)
-    ymedian = median(listy)
-    ymode = mode(listy)
-    ystdev = stdev(listy)
-    ystderr = stdev(listy) / math.sqrt(len(listy))
-    yvar = variance(listy)
-    print(f'Y: Count = {ycount}, Mean = {ymean}, Median = {ymedian}, Mode = {ymode},'
-          f'Std Dev = {ystdev}, Std Err = {ystderr}, Var = {yvar}')
+    y_count = len(listy)
+    y_mean = mean(listy)
+    y_median = median(listy)
+    y_mode = mode(listy)
+    y_stdev = stdev(listy)
+    y_stderr = stdev(listy) / math.sqrt(len(listy))
+    y_var = variance(listy)
+    print(f'Y: Count = {y_count}, Mean = {y_mean}, Median = {y_median}, Mode = {y_mode},'
+          f'Std Dev = {y_stdev}, Std Err = {y_stderr}, Var = {y_var}')
 
-    xycorr = correlation(listx, listy)
-    print(f'X, Y Correlation: {xycorr}')
+    x_y_corr = correlation(listx, listy)
+    print(f'X, Y Correlation: {x_y_corr} \n')
 
 
 # Control flow to run this program in its own directory
 file_list = read_data_file("/Users/mike/projects/zcw_python/pandas_labs/Py-BasicStats")
-print(file_list)
+# print(file_list)
 read_data_sets(file_list)
 
 
