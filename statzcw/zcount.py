@@ -1,4 +1,7 @@
-""" Count method for module """
+"""
+Module to count the numbers in a list of numbers
+"""
+
 
 def zcount(zlist: list) -> float:
     zcounter = 0.0
