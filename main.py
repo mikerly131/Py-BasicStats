@@ -30,8 +30,6 @@ def read_data_sets(files: list):
             y_list = []
             for row in data:
                 if line_count == 0:
-                    x = row[0]
-                    y = row[1]
                     line_count += 1
                 else:
                     x_list.append(int(row[0]))
@@ -101,9 +99,3 @@ def run_py_stats(listx: list, listy: list):
 file_list = read_data_file("/Users/mike/projects/zcw_python/pandas_labs/Py-BasicStats")
 # print(file_list)
 read_data_sets(file_list)
-
-
-
-
-
-

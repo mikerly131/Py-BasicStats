@@ -31,7 +31,7 @@ def cov(x: list, y: list):
     sum = 0
     count = int(zcount.zcount(x))
 
-    # Loop: for each item in the list, calculate the difference from mean multiplied togther, add to sum
+    # Loop: for each item in the list, calculate the difference from mean multiplied together, add to sum
     for i in range(0, count):
         sum += ((x[i] - x_mean) * (y[i] - y_mean))
 
